@@ -1,0 +1,63 @@
+<form [formGroup]="profileForm" *ngIf="isFormControl" (ngSubmit)="onSubmit()">
+  <div class="container">
+  <div *ngFor="let eachElement of rashmi">
+
+
+    <div  *ngIf="eachElement.type==='textbox'">
+      <label> {{eachElement.label}}</label>
+      <input type="text" formControlName="{{eachElement.name}}">
+    </div>
+  
+
+
+
+    <div  *ngIf="eachElement.type==='radio'">
+      <label> {{eachElement.label}}</label>
+      <div *ngFor="let eachOption of eachElement.option">
+
+        <input type="radio" formControlName="{{eachElement.name}}" value="{{eachOption.value}}" name="{{eachElement.name}}" id="{{eachOption.value}}">
+        <label for={{eachOption.value}}>{{eachOption.value}}</label>
+      </div>
+    </div>
+
+    <div  *ngIf="eachElement.type==='checkbox'">
+      <label> {{eachElement.label}}</label>
+      <div *ngFor="let eachOption of eachElement.option">
+
+        <input type="checkbox" formControlName="{{eachElement.name}}" value="{{eachOption.value}}"
+          name="{{eachElement.name}}" id="{{eachOption.value}}">
+        <label for="{{eachOption.value}}">{{eachOption.value}}</label>
+      </div>
+    </div>
+
+    <div  *ngIf="eachElement.type==='date'">
+      <label> {{eachElement.label}}</label>
+      <input type="{{eachElement.type}}" formControlName="{{eachElement.name}}" name="{{eachElement.name}}" id="{{eachElement.name}}">
+    </div>
+
+    <div  *ngIf="eachElement.type==='textarea'">
+      <label> {{eachElement.label}}</label>
+      <input type="{{eachElement.type}}" formControlName="{{eachElement.name}}" name="{{eachElement.name}}" id="{{eachElement.name}}">
+    </div>
+
+
+    <div *ngIf="eachElement.type==='select'">
+      <label> {{eachElement.label}}</label>
+      <select type="checkbox" formControlName="{{eachElement.name}}" name="{{eachElement.name}}">
+        <option>Select Region</option>
+        <option *ngFor="let eachOption of eachElement.option" id="{{eachOption.value}}" value="{{eachOption.value}}">
+          {{eachOption.value}}</option>
+      </select>
+
+    </div>
+    <br><br>
+  </div>
+
+ <div class="btn">
+  <input type="submit" value="save" />
+  </div>
+  </div>
+
+
+
+</form>
