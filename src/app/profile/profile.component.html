@@ -25,7 +25,7 @@
       <div *ngFor="let eachOption of eachElement.option">
 
         <input type="checkbox" formControlName="{{eachElement.name}}" value="{{eachOption.value}}"
-          name="{{eachElement.name}}" id="{{eachOption.value}}">
+          name="{{eachElement.name}}" id="{{eachOption.value}}" >
         <label for="{{eachOption.value}}">{{eachOption.value}}</label>
       </div>
     </div>
